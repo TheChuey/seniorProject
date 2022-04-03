@@ -1,0 +1,49 @@
+html {
+    font-size: 62.5%;
+}
+
+img {
+    border-radius: 4px;
+    width: 50rem;
+    height: 25rem;
+}
+
+section {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+@media (min-width: 500px) and (max-width: 2908px) {
+
+    .box {
+        font-family: "Lucida Console", "Courier New", monospace;
+        width: auto;
+    }
+
+
+    /* --------------- Display Flex --------- */
+    .middle {
+        width: 50rem;
+        margin: auto;
+        padding-top: 10rem;
+        display: flex;
+        /* border: solid black 1px; */
+    }
+
+    .rev {
+        flex-direction: row-reverse;
+    }
+
+    .textOne {
+
+        text-align: center;
+        overflow: auto;
+
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+
+    /* --------------- Display Flex --------- */
+}

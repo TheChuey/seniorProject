@@ -1,0 +1,19 @@
+/////////////////////-----Web Site Pages---///////////////////////////////
+app.get("/FoodInventory", (req, res) => {
+    res.render("pages/FoodInventory");
+});
+
+app.get("/Communication", (req, res) => {
+    res.render("pages/Communication");
+});
+
+app.get("/FormGenerator", (req, res) => {
+    //res.send("hello");
+    res.render("pages/FormGenerator");
+});
+
+app.get("/menu", (req, res) => {
+    res.render("pages/menu");
+});
+
+////////////////////////////////////////////////////
