@@ -31,6 +31,18 @@ section {
         /* border: solid black 1px; */
     }
 
+    .a {
+        width: 50%;
+
+        text-align: center;
+        overflow: auto;
+        margin-top: 5%;
+
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
     .rev {
         flex-direction: row-reverse;
     }

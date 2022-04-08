@@ -1,0 +1,44 @@
+<body>
+
+    <div class="container mt-3">
+        <h2>Post Table</h2>
+        <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Post: Title</th>
+                    <th>Post: ID</th>
+                    <th>Post: Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="remove"><%- data %> </td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button id="delete" onclick="deleteFunction()" style="background:red"> Delete</button>
+                        <button id="save" onclick="saveFunction()" style="background:green"> Save </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a onclick="direction()" href="#">Post Again</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("remove").addEventListener("click", deleteFunction);
+
+        function deleteFunction() {
+            console.log("jesus");
+            document.getElementById("remove").innerHTML = `<td id="remove"></td>`;
+        }
+
+        function direction() {
+            console.log("back");
+            const a = 'post'
+            location.replace(`http://localhost:3000/${a}`);
+        }
+    </script>
+</body>

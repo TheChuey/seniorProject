@@ -1,31 +1,15 @@
-<%- include('../Head_Footer_JS/header.ejs'); %>
-<!-- <%- include('../Head_Footer_JS/navbar.ejs'); %> -->
-
-<script src="/JavaSCript/script.js"> </script>
-<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal -->
-<!-- /images/tacoMan.jpg -->
-<!-- Modal Content -->
-<form id="logIn" class="modal-content animate" action="/" method="POST">
+<form class="px-4 py-3 mx-auto mt-3" style="width: 75%;" action="/" method="POST">
     <div class="imgcontainer">
         <img src="/images/tacoMan.jpg" alt="Avatar" class="avatar">
     </div>
-
-    <div class="container">
+    <div class="form-group">
         <label for="uname"><b>Username</b></label>
         <input id="name" type="text" placeholder="Enter Username" name="uname" required>
-
+    </div>
+    <div class="form-group">
         <label for="psw"><b>Password</b></label>
         <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-
-        <button id="submitButton" type="submit">Login</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-            class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
 </form>

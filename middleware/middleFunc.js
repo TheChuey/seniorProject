@@ -1,24 +1,32 @@
 // jshint esversion: 6
+const data = [];
 
+function postCapture(req, res) {
+    // Data Input
+    const content = req.body;
+    console.log("test incoming post data params-----", content);
+    let url = req.url;
+    console.log("test incoming url", url);
+    console.log("tpye object", typeof content);
+    console.log("data type is an array", Array.isArray(content));
+    //data.push(req.body);
 
+    // Data process
 
+    ////-- responce //////////////////////////////////////////////////////
+    console.log("responce to endpoint request", content);
+    //let data = content;
+    res.render("../view/pages/postView", {
+        data: content.content
+    });
 
-function checValue(value) {
-    console.log("check value");
-    if (value) {
-        console.log("user name matches");
-        return true;
+    // Data output
 
+    console.log("data array is -->", data);
 
-    } else {
-        console.log("false");
-        return false;
-
-
-    }
+    return data;
 }
 
 
-module.exports.checValue = checValue;
-
+module.exports.postCapture = postCapture;
 console.log("end of middle func");

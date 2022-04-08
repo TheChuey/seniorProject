@@ -10,6 +10,19 @@ function objCheck(value) {
     }
 }
 
+function checValue(value) {
+    console.log("check value");
+    if (value) {
+        console.log("user name matches");
+        return true;
+    } else {
+        console.log("false");
+        return false;
+    }
+}
+module.exports.checValue = checValue;
+
+
 function userPassword(userInput, dbr) {
     console.log(
         "user and password function :",

@@ -1,29 +1,47 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Welcome
+<style>
+    .title {
+        background-color: green;
+    }
 
+    .logOFF {
+        background-color: red;
+    }
+</style>
 
-            </a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-            <li><a href="/menu">Menu</a></li>
-            <li><a href="/Form">Form</a></li>
-            <li><a href="/inventory">Inventory</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/exit">Exit</a></li>
-            <li><a href="/">Logout</a></li>
-            <li id="navbar"></li>
+<% if (login === true) { %>
+<div class="title">
+    <h1>Log In</h1>
+    <a class="navbar-brand text-white" href=" #"></a>
+</div>
+<%} else { %>
+<p> Not Allowed </p>
+<div class="logOFF">
+    <h1>LogOut</h1>
+    <a class="navbar-brand text-white" href=" #"></a>
+</div>
+<% } %>
+
+<nav class="navbar navbar-expand-lg  bg-dark navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="/home"> Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/post">Post</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/exit">Logout</a>
+            </li>
+            </li>
         </ul>
-
     </div>
-
 </nav>
-<!-- <script src="../entry/menu.js"></script> -->
-<%- include('./dialogWin.ejs') %>
 
-<!-- <%  %> -->
+
 
 <!-- https://www.javatpoint.com/bootstrap-navbar -->

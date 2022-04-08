@@ -1,25 +1,13 @@
 // jshint esversion: 6
-
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
+const loggerCheck = require("./log");
+const routing = require('./controler/routes');
+const medWarefunc = require('./middleware/middleFunc');
 
-const login = require("./controler/routes"); // change to middel ware
-// remember to seperate the middle ware and routes !!!!! 
-
-
-
-// redirect folder too dirname folder ->public
-// /public is the folder where the loaded html pages CSS, IMG, JS files are located
 app.use(express.static(__dirname + "/public"));
-
-// port listening on 3000
-app.listen(3000);
-
-
-// set variables for templeting engine conversion to HTML
-// view engine is the 
-app.set("view engine", "ejs");
-
+app.use("/", routing);
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -28,14 +16,25 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// testRoute("index.js");
-app.use("/", login); // module name = login pull in by require function 
+app.set("views", "./view");
+app.set("view engine", "ejs");
 
-app.get("/home", (req, res) => {
-    res.render("pages/home");
+app.get("/", (req, res) => {
+    res.render("../view/pages/log");
 });
 
-app.get("/Exit", (req, res) => {
-    res.render("pages/exit");
+app.post("/", (req, res) => {
+    loggerCheck.userpsw(req, res);
 });
+
+app.post("/post/:content", (req, res) => {
+    let data = medWarefunc.postCapture(req, res);
+    console.log(data);
+});
+
+
+//// global node varaibles 
+app.locals.login = true;
+app.locals.user = "Currently Log In";
