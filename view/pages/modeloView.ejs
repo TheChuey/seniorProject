@@ -1,0 +1,62 @@
+<html>
+<%- include('../headBody.ejs'); %>
+
+<body>
+
+    <div class="container">
+        <h2>Centered Modal Example</h2>
+        <p>Center the modal vertically and horizontally within the page, with the .modal-dialog-centered class.</p>
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Open modal
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Post</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <section>
+                        <% content.forEach(function(po) { %>
+                        <div class="jumbotron">
+                            <h1 class="title"><%- po.title %></h1>
+                            <div class="content">
+                                <%- po.content %>
+                                <button id="delete" onclick="del(`<%- po.title %>`)" style="background:red">
+                                    Delete
+                                </button>
+
+                                <button id="edit" onclick="editFunction()" style="background:blue">
+                                    edit
+                                </button>
+                            </div>
+                            <div id="1"></div>
+                        </div>
+
+                        <% }); %>
+                    </section>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        //document.getElementById("post").innerHTML
+    </script>
+
+</body>
+
+</html>

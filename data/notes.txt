@@ -1,0 +1,85 @@
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+
+//Promise Syntax
+let myPromise = new Promise(function (myResolve, myReject) {
+    // "Producing Code" (May take some time)
+
+    myResolve(); // when successful
+    myReject(); // when error
+});
+
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+    function (value) {
+        /* code if successful */
+    },
+    function (error) {
+        /* code if some error */
+    }
+);
+
+
+
+function databaseRetrive(search) {
+    (async function (search) {
+        const userModel = require('./model/schemaModel');
+        const dataTest = require('./test');
+
+        /////////////--Search Quary prep --- //////////////////////////////////
+        //  console.log("search obj contents --->", searchObject);
+        // sort(), limit(), and skip() helpers modify the query's options. 
+        //For example, query.getOptions() below will return an object that contains 
+        //sort and limit properties.
+
+
+
+        /// https://thecodebarbarian.com/how-find-works-in-mongoose.html
+
+
+        //////////////-- find method -- /////////////////////////////////
+        const users = await userModel
+            .find(search);
+        dataTest.test(`model for the shema user: \n ${users}`);
+        dataTest.isAnobj(`search object content: \n`, search);
+
+        return users;
+
+    })() // end of immediately invoked function
+    .then((value) => {
+        //console.log("return value from mongo database:", value);
+    }, (error) => {
+        console.log(error);
+    });
+} // end of databseRetrive() function
+
+
+router
+    .route("/")
+    .get((req, res) => {
+
+        // res.send("hello");
+        res.render("../view/pages/log");
+    })
+    .post((req, res) => {
+        tempfunc.databaseRetrive(req.body)
+            .then((value) => routeModuel.test(`--${value }--`))
+            .catch((error) => routeModuel.test(`error`));
+
+
+        if (tempfunc.userCheck(req.body)) {
+            res.render("../view/pages/home");
+        } else {
+            res.send(`
+               <h1>ERROR ---> One or More Errors Capitliazation </h1> 
+               <a href='http://localhost:3000/'>link text</a> 
+            `);
+        }
+    });           
+    

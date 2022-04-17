@@ -1,0 +1,21 @@
+{
+  "name": "v3",
+  "version": "1.0.0",
+  "description": "version 3 login",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon "
+  },
+  "author": "Jesus",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.4",
+    "mongoose": "^6.2.8",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
+  }
+}
