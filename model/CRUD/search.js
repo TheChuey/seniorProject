@@ -5,6 +5,7 @@ async function returnAllPost() {
     const mongoose = require('../dataBase');
     const userModel = mongoose.posts;
     const allPost = await userModel.find({}); // search all reutrn back 
+    console.log("return from database:", allPost);
     return allPost;
 } // end of function
 

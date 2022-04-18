@@ -5,29 +5,28 @@ const mongoose = require('../dataBase');
 const PostX = mongoose.posts; //// remmeber your reciving a promise 
 
 async function del(search, res) {
-
+    // the look object takes in one search parameter 
     const look = {};
     look.title = search;
 
     // console.log("parameter for del function: ===>", search);
 
     const searchResults = await PostX.find(look);
-    console.log("----------- array lengh:", searchResults.length, "title contents", search);
+    console.log(`find returns Array of Lenght --->:" \n`, searchResults.length, "\n",
+        `parameter of delete function contents ---> `, search);
 
     const delTitle = {};
     delTitle.title = search;
 
-    await PostX.deleteOne(delTitle)
-        .then(results => console.log("deleted sucessfully", results))
-        .catch(err => console.error(err));
+    const delete1 = await PostX.deleteOne(delTitle);
 
-    res.end();
-    // if (searchResults.length == 0) {
-    //     return console.log("empty");
-    // } else {
-    //     return false;
-    // }
 
+    //     .then(results => {
+    //         console.log("deleted sucessfully", results);
+    //     })
+    //     .catch(err => console.error(err));
+    // console.log("outof await postx", a);
+    return delete1;
 
 } // end of function
 
