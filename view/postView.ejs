@@ -73,44 +73,31 @@
 
     location.reload();
 
-  }
+}
 
+ 
+function del(postTitle) {
 
+let postElement = document.querySelector(".del");
+const data = {
+    content: postTitle
+};
 
-  function del(postTitle) {
-    console.log("class element ", postTitle);
-    let postElement = document.querySelector(".del");
-
-    const data = {
-      content: postTitle
-    };
-    console.log("del function --- data object sent via POST ", data);
-    if (postTitle === '') console.log('error----- empyt string');
-    fetch('/delete', {
-        method: 'POST', // or 'PUT'
+fetch('/delete', {
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      })
-      .then(result => {
-        result.json().then(a => console.log('del recieved results json -->:', a));
-
-        if (result.status === 200) {
-          console.log("fetch result sucessfull code 200");
-
-          if (confirm("Post Deleted") && true) {
-            postElement.remove();
-          }
-
-        };
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-
-      }); // end of del function
-
-
-
-  }
+    })
+    .then(response => {
+        console.log('del recieved results json -->:', response);
+        return response.json();
+    })
+    .then(check => {
+        console.log("ok it works", check);
+        if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) postElement.remove();
+    });
+}
+ 
 </script>

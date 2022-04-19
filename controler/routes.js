@@ -38,7 +38,10 @@ router.route("/post/:content/:title").post((req, res) => {
     require("../model/CRUD/search")
         .returnAllPost()
         .then(results => {
-            console.log("results from database all records that inlcude title ---> ", results);
+            console.log(
+                "results from database all records that inlcude title ---> ",
+                results
+            );
             let title = data.post.title;
             let content = data.post.content;
             res.render("../view/postView", {
@@ -50,39 +53,41 @@ router.route("/post/:content/:title").post((req, res) => {
         .catch(Error);
 });
 
-// router
-//     .route("/viewAllpost")
-//     .get((req, res) => {
 
-//     });
-
-///////////////////////////////////////////////////
+///////////////////////--Save --////////////////////////////
 router.route("/save").post((req, res) => {
     const content = req.body.content;
     const title = req.body.title;
     console.log("title of Post saved to database ==> ", req.body.title);
-    console.log("contents of the income request to be saved Object:", content, title);
+    console.log(
+        "contents of the income request to be saved Object:",
+        content,
+        title
+    );
     require("../model/CRUD/save").save(req.body);
     res.end();
 });
 
+//////////////////////--Delete --////////////////////////
 router.route("/delete").post((req, res) => {
     const content = req.body.content;
-    console.log("delte contents:", content);
+
     delteOne = require("../model/CRUD/delete").del(content, res);
-    console.log("type of return ---", delteOne);
-    delteOne.then(results => {
-        console.log("promise results from deleteOne mongoose method ===>", results.deletedCount);
-        res.json({
-            status: "sucess",
-            answear: results.deletedCount
-        });
 
+    delteOne
+        .then(results => {
+            console.log(
+                "promise results from deleteOne mongoose method ===>",
+                results.deletedCount
+            );
+            res.json({
+                status: "sucess",
+                answear: true
+            });
+        })
+        .catch(err => console.error(err));
 
-    }).catch(err => console.error(err));
-    //res.end();
 });
-
 
 //// room formor routes
 

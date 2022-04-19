@@ -3,6 +3,7 @@ const dBTester = require('../test');
 dBTester.test("Database Module -- line 2");
 const mongoose = require('mongoose');
 const shema = require("./schemaModel");
+//mongoose.connect('mongodb+srv://jose:dogcat123!@cluster0.crb9t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 mongoose.connect('mongodb://localhost:27017/DBLogin')
     .then(() => dBTester.test("Connect db..."))
     .catch(err => dBTester.test('Could not connect to MongoDB..', err));
@@ -19,20 +20,7 @@ module.exports = {
 };
 
 
-
-// async function dbFind() {
-
-
-//     // returns using uname from database
-//     // this object has to be developed for different searches
-//     // 
-//     const x = await posts.find({});
-//     return x;
-
-// } // end of function
-
-// let x = dbFind();
-// x.then(function (doc) {
-//     console.log(doc);
-//     // use doc
-// });
+// https://account.mongodb.com/account/login?signedOut=true
+//dogcat123!
+//mongodb+srv://jose:<dogcat123!>@cluster0.crb9t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+//'mongodb://localhost:27017/DBLogin'

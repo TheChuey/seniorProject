@@ -36,34 +36,26 @@ document.getElementById("save").addEventListener("click", save);
 //         }); // end of del function
 // }
 
-
-
 function del(postTitle) {
-    console.log("class element ", postTitle);
-    let postElement = document.querySelector(".del");
 
+    let postElement = document.querySelector(".del");
     const data = {
         content: postTitle
     };
-    console.log("data object sent via POST ", data);
+
     fetch('/delete', {
-            method: 'POST', // or 'PUT'
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         })
-        .then(data => {
-            console.log('Success:', data);
-            if (data.status === 200) {
-                console.log("sucess");
-
-                if (confirm("Post Deleted") && true) {
-                    postElement.remove();
-                }
-
-            };
+        .then(response => {
+            console.log('del recieved results json -->:', response);
+            return response.json();
         })
-        .catch((error) => {
-            console.error('Error:', error);
-        }); // end of del function
+        .then(check => {
+            console.log("ok it works", check);
+            if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) postElement.remove();
+        });
+}
