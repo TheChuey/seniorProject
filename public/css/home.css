@@ -8,54 +8,38 @@ img {
     height: 25rem;
 }
 
-section {
-    margin-top: auto;
-    margin-bottom: auto;
+.textOne {
+    color: #f1f1f1;
+}
+
+.postArea {
+    margin: 10%;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
 }
 
 
-@media (min-width: 500px) and (max-width: 2908px) {
 
-    .box {
-        font-family: "Lucida Console", "Courier New", monospace;
-        width: auto;
-    }
-
-
-    /* --------------- Display Flex --------- */
-    .middle {
-        width: 50rem;
-        margin: auto;
-        padding-top: 10rem;
-        display: flex;
-        /* border: solid black 1px; */
-    }
-
-    .a {
-        width: 50%;
-
-        text-align: center;
-        overflow: auto;
-        margin-top: 5%;
-
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-
-    .rev {
-        flex-direction: row-reverse;
-    }
-
-    .textOne {
-
-        text-align: center;
-        overflow: auto;
-
-        margin-right: auto;
-        margin-left: auto;
-
-    }
-
-    /* --------------- Display Flex --------- */
+.flex-item-left {
+    padding: 10px;
+    flex: 50%;
 }
+
+.flex-item-right {
+    text: color white;
+    background-color: black;
+    padding: 10px;
+    flex: 50%;
+}
+
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    /* --------------- Display Flex --------- */

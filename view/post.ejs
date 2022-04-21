@@ -1,29 +1,42 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-  integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-<section>
+<!DOCTYPE html>
+<html lang="en">
 
-  <form class="box" action="/post/:content/:title" method="post">
-    <h1 id="entri" class="middle">Enter Cooments or Questions</h1>
-    <div class="a">
-      <div class="input-group mb-3">
-        <input type="text" name="title" class="form-control" placeholder="Post Name" aria-label="Post Name" required
-          aria-describedby="button-addon2">
+<html>
 
+<head>
+  <%- include('./pages/meta.ejs'); %>
+
+  <title><%- citename %> </title>
+</head>
+
+
+<%- include('./pages/navbar.ejs'); %>
+
+<body>
+  <h1> <%- citename %></h1>
+  <section class="postArea">
+    <form class="flex-container" action="/post/:content/:title" method="post">
+      <h1 id="entri" class="middle">Enter Cooments or Questions</h1>
+      <div class="flex-item-left">
+        <div>
+          <input type="text" name="title" class="form-control" placeholder="Post Name" aria-label="Post Name" required
+            aria-describedby="button-addon2">
+        </div>
+
+        <textarea name="content"></textarea>
+        <script src="/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript">
+          CKEDITOR.replace("content");
+        </script>
       </div>
 
-      <textarea name="content"></textarea>
-      <script src="/ckeditor/ckeditor.js"></script>
-      <script type="text/javascript">
-        CKEDITOR.replace("content");
-      </script>
+      <div class="flex-item-right ">
+        <button type="submit" value="Submit" style="margin-top: 1.5%;"
+          class=" btn btn-primary btn-lg btn-block btn-success">Post Tread
+          level
+          button</button>
+      </div>
+    </form>
+  </section>
 
-    </div>
-    <div class="textOne ">
-
-      <button type="submit" value="Submit" style="margin-top: 1.5%;"
-        class=" btn btn-primary btn-lg btn-block btn-success">Post Tread
-        level
-        button</button>
-    </div>
-  </form>
-</section>
+</body>

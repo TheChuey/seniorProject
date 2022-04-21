@@ -1,103 +1,78 @@
-<link rel="stylesheet" href="/css/heading.css">
-<section id="2">
-  <div class="card save">
-    <h1> Title: </h1>
-    <div id="grabTitle"><%- title %> </div>
-    <div>Message:
-      <p id="message"><%- content %></p>
-      <button id="save" onclick="save()" style="background:green">
-        Save
-      </button>
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+  <%- include('./pages/meta.ejs'); %>
+
+  <title> </title>
+</head>
+<%- include('./pages/navbar.ejs'); %>
+
+<body>
+  <div class="sec" id="2">
+    <div id="sectionOne" class="card save">
+      <h1> Title: </h1>
+      <div id="grabTitle"><%- title %> </div>
+      <div>Message:
+        <p id="message"><%- content %></p>
+        <button id="save" onclick="save()" style="background:green">
+          Save
+        </button>
+      </div>
     </div>
   </div>
-</section>
+  <!-- 
+  <table id="customers">
+    <tr>
+      <th>
+        <h1>Post</h1>
+      </th>
+    </tr>
+    <% results.forEach(function(titleAndContent) { %>
+    <tr>
+      <td>
+        <h1><%- titleAndContent.title %></h1>
 
-<section id="3">
-  <% results.forEach(function(titleAndContent) { %>
-  <div class="card del">
-    <h1><%- titleAndContent.title %></h1>
-    <div id="message">
-      <%- titleAndContent.content %>
-      <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
-        Delete
-      </button>
+        <%- titleAndContent.content %>
+        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
+          Delete
+        </button>
 
-      <button id="edit" onclick="editFunction()" style="background:blue">
-        edit
-      </button>
+        <button id="edit" onclick="editFunction()" style="background:blue">
+          edit
+        </button>
+
+      </td>
+    </tr>
+    <% }); %>
+  
+  </table> -->
+
+
+
+
+  <div class="sec" id="3">
+    <% results.forEach(function(titleAndContent) { %>
+    <div>
+      <h1><%- titleAndContent.title %></h1>
+      <div id="message">
+        <%- titleAndContent.content %>
+        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
+          Delete
+        </button>
+
+        <button id="edit" onclick="editFunction()" style="background:blue">
+          edit
+        </button>
+      </div>
     </div>
-    <div id="1"></div>
+
+    <% }); %>
   </div>
 
-  <% }); %>
-</section>
+  </div>
+  <%- include('../view/javaScript/script.ejs')%>
 
-</div>
-<script>
-  document.getElementById("save").onclick = function save() {
-    //let postElement = document.querySelector(".save");
-    let grabTitle = document.getElementById("grabTitle").textContent;
-    let grabMessage = document.getElementById("message").textContent;
-    //saveData object is sent via post to the server 
-    const saveData = {
-      title: grabTitle,
-      content: grabMessage
-    };
-    console.log("object to be POST to server ", saveData);
-    fetch('/save', {
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(saveData),
-      })
-      .then(saveData => {
-        console.log('save return -->', saveData);
-        if (saveData.status === 200) {
-          console.log("sucess");
-        }
-        if (confirm("Post saved! Press Ok to Post or Repost") == true) {
-          // postElement.remove();
-          // document.getElementById("2").innerHTML = "You pressed OK!";
-        } else {
-          document.getElementById("2").innerHTML = "You canceled!";
-        };
-
-        if (saveData.status === 404) {
-          alert("not saved");
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      }); // end of del function
-
-    location.reload();
-
-}
-
- 
-function del(postTitle) {
-
-let postElement = document.querySelector(".del");
-const data = {
-    content: postTitle
-};
-
-fetch('/delete', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => {
-        console.log('del recieved results json -->:', response);
-        return response.json();
-    })
-    .then(check => {
-        console.log("ok it works", check);
-        if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) postElement.remove();
-    });
-}
- 
-</script>
+</body>

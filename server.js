@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 const routing = require('./controler/routes');
 
 
+
 app.use(express.static(__dirname + "/public"));
 
 const bodyParser = require('body-parser');
@@ -16,9 +17,12 @@ app.use(bodyParser.urlencoded({
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+
 app.set("views", "./view");
 app.set("view engine", "ejs");
+
 app.use("/", routing);
+
 
 
 app.locals.login = true;

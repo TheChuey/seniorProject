@@ -5,7 +5,7 @@ function objCheck(value) {
         console.log(`Object Contains Data     test: ${true}`);
         return true;
     } else {
-        console.log(`Empty Object      test: ${false}`);
+        console.log(`Empty Object test : ${false}`);
         return false;
     }
 }
@@ -27,27 +27,31 @@ function userPassword(userInput, dbr) {
     console.log(
         "user and password function :",
         `
-      database uname-->${dbr[0].uname}, 
+      database uname-->${dbr.uname}, 
       user input ---> ${userInput.uname}, 
       psw input ----> ${userInput.psw}, 
-      database psw --->${dbr[0].psw}
+      database psw --->${dbr.psw}
       `
     );
-
-    if (dbr[0].uname === userInput.uname) {
-        console.log(`user name match   test: ${true}`);
-    } else {
-        console.log(`psw/user          test: ${false}`);
-        return false;
-    }
-
-    if (userInput.psw === dbr[0].psw) {
-        console.log(`pasword match     test: ${true}`);
+    if ((dbr.uname === userInput.uname) && (userInput.psw === dbr.psw)) {
         return true;
     } else {
-        console.log(`psw/user          test: ${false}`);
         return false;
     }
+    // if (dbr.uname === userInput.uname) {
+    //     console.log(`user name match   test: ${true}`);
+    // } else {
+    //     console.log(`user          test: ${false}`);
+    //     return false;
+    // }
+
+    // if (userInput.psw === dbr.psw) {
+    //     console.log(`pasword match     test: ${true}`);
+    //     return true;
+    // } else {
+    //     console.log(`psw return: ${false}`);
+    //     return false;
+    // }
 
 
 
@@ -55,4 +59,6 @@ function userPassword(userInput, dbr) {
 }
 let i = 0;
 
+module.exports.userPassword = userPassword;
+module.exports.objCheck = objCheck;
 module.exports.userPassword = userPassword;

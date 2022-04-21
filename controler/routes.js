@@ -9,29 +9,50 @@ const router = express.Router();
 const data = {};
 
 router.route("/").get((req, res) => {
-    res.render("../view/pages/log");
+    res.render("../view/pages/log"); //../view/pages/log
+});
+
+//////////////////Login Form Data.credentials /////////////////////////////////
+router.route("/log/:uname/:psw").post((req, res) => {
+    data.credentials = req.body;
+    const dbfind = require("../model/CRUD/search");
+    const check = require("../middleware/fun");
+    const userPsw = dbfind.dbfineUserName();
+    userPsw.then(results => {
+        let condition = check.userPassword(data.credentials, results[0]);
+        if (condition) {
+            res.render("../view/pages/home", {
+                citename: "Home"
+            });
+        } else {
+            res.render("../view/pages/mesage");
+        }
+    });
+
 });
 
 router.route("/").post((req, res) => {
-    res.render("../view/index");
-});
-///////////////////////////////////////////////////
-
-router.route("/post").get((req, res) => {
-    res.render("../view/post.ejs");
-});
-
-router.route("/postView").get((req, res) => {
-    res.render("./view/postView");
-});
-
-///////////////////////////////////////////////////
-router.route("/home").get((req, res) => {
     res.render("../view/pages/home");
+
 });
 
-///////////////////////////////////////////////////
+///////////////////post in navbar router////////////////////////////////
+router.route("/post").get((req, res) => {
+    res.render("../view/post.ejs", {
+        citename: "Post"
+    });
+});
 
+
+/////////////////// home in navbar router////////////////////////////////
+router.route("/home").get((req, res) => {
+    console.log("home cite");
+    res.render("../view/pages/home", {
+        citename: "Home"
+    });
+});
+
+//////////////////Post Form Data.post /////////////////////////////////
 router.route("/post/:content/:title").post((req, res) => {
     data.post = medWarefunc.postCapture(req, res);
 
@@ -47,7 +68,7 @@ router.route("/post/:content/:title").post((req, res) => {
             res.render("../view/postView", {
                 results: results,
                 content: content,
-                title: title
+                title: title,
             });
         })
         .catch(Error);
@@ -70,14 +91,14 @@ router.route("/save").post((req, res) => {
 
 //////////////////////--Delete --////////////////////////
 router.route("/delete").post((req, res) => {
-    const content = req.body.content;
+    const delContent = req.body.content;
 
-    delteOne = require("../model/CRUD/delete").del(content, res);
+    delteOne = require("../model/CRUD/delete").del(delContent, res);
 
     delteOne
         .then(results => {
             console.log(
-                "promise results from deleteOne mongoose method ===>",
+                "delteOne function return promise, contents are: ===>",
                 results.deletedCount
             );
             res.json({

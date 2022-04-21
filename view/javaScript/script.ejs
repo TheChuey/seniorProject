@@ -1,11 +1,97 @@
-<!-- Bootstrap core JavaSCript-->
+<script>
+    console.log("javascript is included")
+    // const section = document.querySelectorAll("section");
+    // console.log("section:", section);
+
+    function home() {
+
+    }
+
+    function navbar() {
+        let head = document.querySelector("head");
+        console.log("navbar");
+
+        let linkTwo = document.createElement("link");
+        linkTwo.type = 'text/css';
+        linkTwo.href = '/css/main.css';
+        linkTwo.rel = "stylesheet";
+        head.appendChild(linkTwo);
+    }
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    function post() {
+        console.log("post")
+
+    }
+
+    function log() {
+        console.log("log")
+        let head = document.querySelector("head");
+        let linkFour = document.createElement("link");
+        linkFour.type = 'text/css';
+        linkFour.href = `/css/login.css`;
+        linkFour.rel = "stylesheet";
+        head.appendChild(linkFour);
+    }
+
+
+    function save() {
+        let grabTitle = document.getElementById("grabTitle").textContent;
+        let grabMessage = document.getElementById("message").textContent;
+
+        //saveData object is sent via post to the server 
+        const saveData = {
+            title: grabTitle,
+            content: grabMessage
+        };
+
+        const postData = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(saveData),
+        }
+
+        fetch('/save', postData)
+            .then(saveData => {
+                if ((saveData.status === 200) && (confirm("Post saved! Press Ok to Post or Repost") == true)) {
+                    document.getElementById("sectionOne").remove();
+                    document.getElementById("2").innerHTML = "<h1>Saved</h1>";
+                } else {
+                    document.getElementById("2").innerHTML = "You canceled!";
+                };
+                if (saveData.status === 404) {
+                    alert("not saved");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            }); // end of Save function
+    }
+
+
+    function del(postTitle) {
+        let postElement = document.querySelector(".del");
+        const data = {
+            content: postTitle
+        };
+
+        fetch('/delete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                console.log('del recieved results json -->:', response);
+                return response.json();
+            })
+            .then(check => {
+                console.log("ok it works", check);
+                if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) postElement.remove()
+            });
+
+    } // end of Delete function 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-</script>
-<script src="/JavaSCript/menu.js"></script>
-<script src="../entry/menu.js"></script>

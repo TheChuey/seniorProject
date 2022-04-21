@@ -17,5 +17,30 @@ function search(res) {
     });
 }
 
-module.exports.search = search;
-module.exports.returnAllPost = returnAllPost;
+
+async function dbfineUserName() {
+    const mongoose = require('../dataBase');
+    const user = mongoose.credentials;
+    const userPsw = await user.find({
+        uname: "Jose",
+        psw: "josh"
+    }); // search all reutrn back 
+    console.log("return from database:", userPsw);
+    return userPsw;
+}
+
+function scan() {
+    dbfineUserName()
+        .then(response => {
+            console.log(response.uname, "obj-->", response);
+            return response;
+        });
+}
+
+
+module.exports = {
+    search: search,
+    returnAllPost: returnAllPost,
+    dbfineUserName: dbfineUserName,
+    scan: scan
+};
