@@ -52,6 +52,13 @@ router.route("/home").get((req, res) => {
     });
 });
 
+router.route("/exit").get((req, res) => {
+    console.log("exit");
+    res.render("../view/pages/exit", {
+        citename: "exit"
+    });
+});
+
 //////////////////Post Form Data.post /////////////////////////////////
 router.route("/post/:content/:title").post((req, res) => {
     data.post = medWarefunc.postCapture(req, res);

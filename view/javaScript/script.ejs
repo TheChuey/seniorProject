@@ -56,6 +56,7 @@
         fetch('/save', postData)
             .then(saveData => {
                 if ((saveData.status === 200) && (confirm("Post saved! Press Ok to Post or Repost") == true)) {
+                    location.reload();;
                     document.getElementById("sectionOne").remove();
                     document.getElementById("2").innerHTML = "<h1>Saved</h1>";
                 } else {
@@ -73,6 +74,7 @@
 
     function del(postTitle) {
         let postElement = document.querySelector(".del");
+        const nodeList = document.querySelector(".textTwo");
         const data = {
             content: postTitle
         };
@@ -90,8 +92,15 @@
             })
             .then(check => {
                 console.log("ok it works", check);
-                if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) postElement.remove()
-            });
+                if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) {
+                    nodeList[1].remove();
+
+
+                    console.log(nodeList);
+                    // document.getElementById("3").remove()
+                };
+
+            }).catch(error => console.log(error));
 
     } // end of Delete function 
 </script>

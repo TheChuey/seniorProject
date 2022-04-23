@@ -11,66 +11,47 @@
 <%- include('./pages/navbar.ejs'); %>
 
 <body>
-  <div class="sec" id="2">
-    <div id="sectionOne" class="card save">
+  <div id="2">
+    <div id="sectionOne" class="flex-container postArea">
       <h1> Title: </h1>
-      <div id="grabTitle"><%- title %> </div>
-      <div>Message:
-        <p id="message"><%- content %></p>
-        <button id="save" onclick="save()" style="background:green">
-          Save
-        </button>
+      <div class="flex-item-left">
+        <div id="grabTitle"><%- title %> </div>
       </div>
     </div>
+    <div class="flex-container postArea">
+      <div class="flex-items-right">
+        <h1>Post:</h1>
+        <div id="message" class="textTwo">
+          <%- content %>
+        </div>
+      </div>
+      <button id="save" onclick="save()">
+        Save
+      </button>
+    </div>
+
   </div>
-  <!-- 
-  <table id="customers">
-    <tr>
-      <th>
-        <h1>Post</h1>
-      </th>
-    </tr>
-    <% results.forEach(function(titleAndContent) { %>
-    <tr>
-      <td>
-        <h1><%- titleAndContent.title %></h1>
-
-        <%- titleAndContent.content %>
-        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
-          Delete
-        </button>
-
-        <button id="edit" onclick="editFunction()" style="background:blue">
-          edit
-        </button>
-
-      </td>
-    </tr>
-    <% }); %>
-  
-  </table> -->
 
 
 
 
-  <div class="sec" id="3">
-    <% results.forEach(function(titleAndContent) { %>
-    <div>
+  <% results.forEach(function(titleAndContent) { %>
+
+  <div class="flex-container-save" id="3">
+    <div class="div-content">
       <h1><%- titleAndContent.title %></h1>
-      <div id="message">
-        <%- titleAndContent.content %>
-        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
-          Delete
-        </button>
-
-        <button id="edit" onclick="editFunction()" style="background:blue">
-          edit
-        </button>
+      <div class="textTwo ">
+        <%- content %>
       </div>
+    </div>
+    <div>
+      <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
+        Delete
+      </button>
     </div>
 
     <% }); %>
-  </div>
+
 
   </div>
   <%- include('../view/javaScript/script.ejs')%>
