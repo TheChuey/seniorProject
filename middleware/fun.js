@@ -38,24 +38,6 @@ function userPassword(userInput, dbr) {
     } else {
         return false;
     }
-    // if (dbr.uname === userInput.uname) {
-    //     console.log(`user name match   test: ${true}`);
-    // } else {
-    //     console.log(`user          test: ${false}`);
-    //     return false;
-    // }
-
-    // if (userInput.psw === dbr.psw) {
-    //     console.log(`pasword match     test: ${true}`);
-    //     return true;
-    // } else {
-    //     console.log(`psw return: ${false}`);
-    //     return false;
-    // }
-
-
-
-    console.log("------------------------------", i++);
 }
 let i = 0;
 

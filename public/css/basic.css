@@ -1,0 +1,11 @@
+body {
+    font-family: system-ui;
+    font-size: 62.5%;
+    /* 1em = 10px */
+    line-height: 1.4;
+}
+
+#save {
+    background: green;
+    width: 550px;
+}

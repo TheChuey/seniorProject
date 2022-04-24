@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <html>
 
 <head>
@@ -13,47 +12,48 @@
 <body>
   <div id="2">
     <div id="sectionOne" class="flex-container postArea">
-      <h1> Title: </h1>
-      <div class="flex-item-left">
-        <div id="grabTitle"><%- title %> </div>
+      <h1>Title:</h1>
+      <div class="flex-item-left content-width">
+        <div id="grabTitle"><%- title %></div>
       </div>
     </div>
     <div class="flex-container postArea">
       <div class="flex-items-right">
-        <h1>Post:</h1>
-        <div id="message" class="textTwo">
-          <%- content %>
+        <div class="innerContainer ">
+          <h1>Post:</h1>
+          <div id="message" class="content-width textTwo">
+            <%- content %>
+          </div>
         </div>
+        <button id="save" onclick="save()">
+          Save
+        </button>
       </div>
-      <button id="save" onclick="save()">
-        Save
-      </button>
     </div>
-
   </div>
-
-
-
 
   <% results.forEach(function(titleAndContent) { %>
 
   <div class="flex-container-save" id="3">
-    <div class="div-content">
-      <h1><%- titleAndContent.title %></h1>
-      <div class="textTwo ">
-        <%- content %>
+    <div class="div-content postArea">
+      Post Title:
+      <h2> <%- titleAndContent.title %></h2>
+      <div class="innerContainer">
+        <div class="textTwo content-width">
+          <%- content %>
+        </div>
+        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
+          Delete
+        </button>
       </div>
     </div>
-    <div>
-      <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
-        Delete
-      </button>
-    </div>
+    <div></div>
 
     <% }); %>
-
-
   </div>
   <%- include('../view/javaScript/script.ejs')%>
-
 </body>
+
+</html>
+
+</html>

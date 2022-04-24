@@ -1,0 +1,44 @@
+<script>
+    let searchButton = document.getElementById("search");
+    console.log(searchButton);
+    searchButton.addEventListener("click", () => {
+        console.log("button pressed");
+        sendApiRequest();
+    });
+
+    async function sendApiRequest() {
+        let APP_ID = "20f21e2d"
+        let API_Key = "287810c65674d1fb9479a8ebddb51e74"
+        let response = await fetch(
+            ` https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_Key}&q=hamburger`);
+        console.log(response);
+        let data = await response.json();
+        console.log(data);
+        useApiData(data);
+    } {}
+
+    function useApiData(data) {
+        const templeteA = `
+        scriptAPI.ejs
+        <div class="flex-container">
+            <div class="flex-item-left">
+                <img src="${data.hits[0].recipe.image}" />
+            </div>
+            <div class="flex-item-right">
+                <p id="recipy" class="textOne ">
+                  <%- fooditem %>
+                  ${data.hits[0].recipe.label}
+                </p>
+                <P style = "color: red">
+                    ${data.hits[2].recipe.ingredientLines}
+                </p>
+            </div>
+        </div>
+        `;
+
+        const section = document.getElementById("item");
+        section.innerHTML = templeteA;
+        console.log("test");
+
+    }
+</script>

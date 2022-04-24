@@ -80,7 +80,25 @@ router.route("/post/:content/:title").post((req, res) => {
         })
         .catch(Error);
 });
+///////////////// API Form  /////////////////////////////////
 
+
+router.route("/api").get((req, res) => {
+    res.render("../view/api");
+});
+
+router.route("/api/:Hamburger/:Pizza/:HotDogs").post((req, res) => {
+    data.foodSearch = medWarefunc.postCapture(req, res);
+    // let hamburger = data.foodSearch.Hamburger;
+    // let pizza = data.foodSearch.pizza;
+    // let hotdogs = data.foodSearch.hotdogs;
+    console.log(data.foodSearch);
+    res.render("../view/api", {
+        name: "API",
+        load: false, // sent to fron end web page api.ejs
+        fooditem: data.foodSearch,
+    });
+});
 
 ///////////////////////--Save --////////////////////////////
 router.route("/save").post((req, res) => {
@@ -106,10 +124,12 @@ router.route("/delete").post((req, res) => {
         .then(results => {
             console.log(
                 "delteOne function return promise, contents are: ===>",
-                results.deletedCount
+                results.deletedCount, "title", delContent
             );
             res.json({
                 status: "sucess",
+                delName: delContent,
+                delCount: results.deletedCount,
                 answear: true
             });
         })

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <%- include('./pages/meta.ejs'); %>
+    <title> <%- name %> </title>
+</head>
+
+<%- include('./pages/navbar.ejs'); %>
+
+
+
+<section>
+    <h1 id="entri"> Search </h1>
+    <div class="flex-container">
+        <div class="flex-item-left">
+
+        </div>
+        <div class="flex-item-right">
+            <p class="textOne ">
+                test api
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h1>Search Favorite Combo Meals</h1>
+
+    <form action="/api/:Hamburger/:Pizza/:HotDogs" method="post">
+        <input type="checkbox" id="Hamburger" name="Hamburger" value="Hamburger">
+        <label for="vehicle1"> Hamburger</label><br>
+        <input type="checkbox" id="Pizza" name="Pizza" value="Pizza">
+        <label for="vehicle2"> Pizza</label><br>
+        <input type="checkbox" id="HotDogs" name="HotDogs" value="HotDogs">
+        <label for="vehicle3"> HotDogs</label><br><br>
+        <input type="submit" value="Search choice">
+    </form>
+</section>
+
+<%- fooditem %>
+
+
+<input id="search" type="submit" value="Search">
+<section id="item">
+    <%- fooditem.Pizza %>
+</section>
+
+
+<% if (load) { %>
+<script src="/JavaSCript/script.js"></script>
+/* run script */
+<% } %>
+
+
+<%- include('./javaScript/scriptAPI.ejs')%>

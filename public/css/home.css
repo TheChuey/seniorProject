@@ -4,26 +4,25 @@ img {
     height: 25rem;
 }
 
-.textOne {
-    color: #f1f1f1;
-}
-
+/* post Area seperates section top and bottom */
 .postArea {
-    margin: 10%;
+    margin-top: 5%;
+    margin-bottom: auto;
+
 }
 
+/* Container for Save button and title with post */
 .flex-container {
     display: flex;
     flex-direction: row;
     font-size: 30px;
     text-align: center;
+    justify-content: center;
 }
-
-
 
 .flex-item-left {
     padding: 10px;
-    flex: 50%;
+
 }
 
 .flex-item-right {
@@ -31,38 +30,73 @@ img {
     padding: 10px;
     flex-grow: 1;
     word-wrap: break-word;
-  
+
 }
 
-.message-post-save{
+/* inner container is subset of right item flex
+The items set up row and conatin header 1, contents, and save button
+*/
+.innerContainer {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+
+    justify-content: center;
+}
+
+.message-post-save {
     width: auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     background: white;
 }
 
-
-#save {
-    background: green;
-}
-
-
+/* The post saved contents */
 .flex-container-save {
     display: flex;
     flex-direction: column;
     font-size: 30px;
     text-align: center;
 
+
 }
 
-.div-content{
-    
+.textOne {
+    color: #f1f1f1;
+}
+
+
+
+.div-content {
+    border: 3px solid green;
     background: yellow;
-  
+
+
 }
 
-.textTwo {
+.textTwo p {
     word-wrap: break-word;
+    flex-basis: 200px;
+}
+
+
+.content-width {
+    width: 50%;
+    border: 3px solid green;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+#sectionONe {
+    border: 3px solid green;
+}
+
+#delete {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 90px;
+    width: 250px;
 }
 
 

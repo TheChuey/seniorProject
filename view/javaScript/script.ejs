@@ -1,7 +1,6 @@
 <script>
     console.log("javascript is included")
-    // const section = document.querySelectorAll("section");
-    // console.log("section:", section);
+
 
     function home() {
 
@@ -56,9 +55,15 @@
         fetch('/save', postData)
             .then(saveData => {
                 if ((saveData.status === 200) && (confirm("Post saved! Press Ok to Post or Repost") == true)) {
-                    location.reload();;
-                    document.getElementById("sectionOne").remove();
-                    document.getElementById("2").innerHTML = "<h1>Saved</h1>";
+                    console.log(saveData, saveData.ok);
+                    if (saveData.ok) {
+                        document.getElementById("sectionOne").remove();
+                        document.getElementById("2").innerHTML = "<h1>Saved</h1>";
+                    }
+
+                    // location.reload();
+
+
                 } else {
                     document.getElementById("2").innerHTML = "You canceled!";
                 };
@@ -74,7 +79,9 @@
 
     function del(postTitle) {
         let postElement = document.querySelector(".del");
-        const nodeList = document.querySelector(".textTwo");
+        const nodeList = document.querySelectorAll("h2");
+        const divContent = document.getElementsByClassName("div-content");
+
         const data = {
             content: postTitle
         };
@@ -93,14 +100,29 @@
             .then(check => {
                 console.log("ok it works", check);
                 if ((check.status === "sucess") && (confirm("Post Deleted") && check.answear)) {
-                    nodeList[1].remove();
+                    console.log(check);
+                    for (let i = 0; i < nodeList.length; i++) {
+                        console.log(i, nodeList[i], nodeList[i]);
 
+                        if (nodeList[i].outerText.toString() === check.delName.toString()) {
+                            console.log("del element scuessfully", nodeList[i].outerText.toString());
+                            console.log(divContent[i]);
 
-                    console.log(nodeList);
+                            divContent[i].innerHTML = "removed";
+
+                        }
+                        if (1 === check.delCount) {
+                            console.log("check del true", check.delCount);
+                            location.reload();
+                            document.getElementById("sectionOne").remove();
+                        }
+                    }
                     // document.getElementById("3").remove()
                 };
 
+
             }).catch(error => console.log(error));
+
 
     } // end of Delete function 
 </script>
