@@ -11,6 +11,7 @@ function postCapture(req, res) {
     console.log("data type is an array", Array.isArray(content));
     //data.push(req.body);
 
+<<<<<<< Updated upstream:middleware/middleFunc.js
     // Data process
 
     ////-- responce //////////////////////////////////////////////////////
@@ -25,6 +26,10 @@ function postCapture(req, res) {
     console.log("data array is -->", data);
 
     return data;
+=======
+    //output to data
+    return content; // object returned content
+>>>>>>> Stashed changes:middleware/middleFuncOne.js
 }
 
 

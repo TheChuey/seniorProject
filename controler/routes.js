@@ -1,7 +1,11 @@
 // jshint esversion: 6
 const express = require("express");
 
+<<<<<<< Updated upstream
 let router = express.Router();
+=======
+const medWarefunc = require("../middleware/middleFuncOne");
+>>>>>>> Stashed changes
 
 router
     .route("/")
