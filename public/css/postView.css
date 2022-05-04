@@ -1,0 +1,101 @@
+.flex-container-postView {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 5%;
+
+}
+
+.flex-item-left-postView {
+    margin-left: 250px;
+    margin-right: 5%;
+}
+
+.flex-item-right-postView {
+    margin-right: 250px;
+    width: 15%;
+}
+
+.postSave {
+    width: auto;
+}
+
+.content-width {
+    text-align: center;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+}
+
+.textTwo {
+    border-style: outset;
+}
+
+.postSave {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: rgb(106, 225, 136);
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.postData {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.div-content {
+    /* border-bottom-style: solid; */
+    margin-bottom: 4%;
+
+}
+
+#delete {
+    background-color: red;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* inner container is subset of right item flex
+The items set up row and conatin header 1, contents, and save button
+*/
+.innerContainer {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.item {
+    border-left: 3px solid black;
+    margin-left: 4%;
+
+}
+
+@media (max-width: 800px) {
+    .flex-container-postView {
+        flex-direction: column;
+    }
+
+    .innerContainer {
+        display: flex;
+        flex-direction: column;
+        font-size: 30px;
+        text-align: center;
+        justify-content: center;
+    }
+}

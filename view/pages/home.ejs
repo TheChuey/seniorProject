@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-</html>
+
 
 <head>
     <%- include('meta.ejs'); %>
@@ -10,19 +10,25 @@
 
 <%- include('navbar.ejs'); %>
 
-<body>
-    <h1 id="entri"> <%-  citename %> </h1>
-    <div class="flex-container">
-        <div class="flex-item-left">
-            <img src="/images/MrTaco.jpg" />
-        </div>
-        <div class="flex-item-right">
-            <p class="textOne ">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-                quos, ducimus quibusdam incidunt, quia temporibus porro totam tempora
-                suscipit animi vel voluptatum optio facilis tempore!
-            </p>
-        </div>
-    </div>
 
-</body>
+<div class="header">
+    <h1 id="entri"> <%-  citename %> </h1>
+</div>
+<div class="flex-container">
+    <div class="flex-item-left">
+        <img src="/images/lunchTruck.png" alt="Lunch Truck" />
+    </div>
+    <div class="flex-item-right">
+        <p class="textOne ">
+            A lunch truck needs a place for people to post their comments. <br>
+            Stakeholders also need recipes for their cooks.
+        </p>
+    </div>
+</div>
+
+
+<footer>
+    <%- include('footer.ejs'); %>
+</footer>
+
+</html>

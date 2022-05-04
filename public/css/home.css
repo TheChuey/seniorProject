@@ -4,46 +4,29 @@ img {
     height: 25rem;
 }
 
-/* post Area seperates section top and bottom */
-.postArea {
-    margin-top: 5%;
-    margin-bottom: auto;
-
-}
-
-/* Container for Save button and title with post */
 .flex-container {
     display: flex;
     flex-direction: row;
     font-size: 30px;
     text-align: center;
     justify-content: center;
+
 }
 
 .flex-item-left {
-    padding: 10px;
-
+    margin-left: 15%;
+    margin-right: auto;
 }
 
 .flex-item-right {
-    background-color: black;
-    padding: 10px;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 15%;
     flex-grow: 1;
     word-wrap: break-word;
 
 }
 
-/* inner container is subset of right item flex
-The items set up row and conatin header 1, contents, and save button
-*/
-.innerContainer {
-    display: flex;
-    flex-direction: row;
-    font-size: 30px;
-    text-align: center;
-
-    justify-content: center;
-}
 
 .message-post-save {
     width: auto;
@@ -62,35 +45,11 @@ The items set up row and conatin header 1, contents, and save button
 
 }
 
-.textOne {
-    color: #f1f1f1;
-}
-
-
-
-.div-content {
-    border: 3px solid green;
-    background: yellow;
-
-
-}
-
 .textTwo p {
     word-wrap: break-word;
     flex-basis: 200px;
 }
 
-
-.content-width {
-    width: 50%;
-    border: 3px solid green;
-    /* margin-left: auto;
-    margin-right: auto; */
-}
-
-#sectionONe {
-    border: 3px solid green;
-}
 
 #delete {
     margin-left: 5%;

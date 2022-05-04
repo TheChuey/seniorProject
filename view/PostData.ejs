@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <%- include('./pages/meta.ejs'); %>
+
+    <title>Post</title>
+</head>
+<%- include('./pages/navbar.ejs'); %>
+
+<body>
+
+
+
+    <% results.forEach(function(titleAndContent) { %>
+
+    <div class="flex-container-save" id="3">
+        <div class="div-content postArea">
+
+            <div class="innerContainer">
+                <div class="item">
+                    <h2>Title:</h2>
+                    <div> <%- title %></div>
+                </div>
+                <div class="item">
+                    <h2>Content:</h2>
+                    <%- content %>
+                </div>
+                <div class="item">
+                    <h2>Remove:</h2>
+                    <button id="delete" onclick="del(`<%- titleAndContent.title %>`)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <% }); %>
+    </div>
+    <%- include('../view/javaScript/script.ejs')%>
+</body>
+
+<footer>
+    <%- include('./pages/footer.ejs'); %>
+</footer>

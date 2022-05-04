@@ -43,4 +43,3 @@ let i = 0;
 
 module.exports.userPassword = userPassword;
 module.exports.objCheck = objCheck;
-module.exports.userPassword = userPassword;

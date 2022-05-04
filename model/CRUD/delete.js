@@ -19,13 +19,6 @@ async function del(search, res) {
     delTitle.title = search;
 
     const delete1 = await PostX.deleteOne(delTitle);
-
-
-    //     .then(results => {
-    //         console.log("deleted sucessfully", results);
-    //     })
-    //     .catch(err => console.error(err));
-    // console.log("outof await postx", a);
     return delete1;
 
 } // end of function

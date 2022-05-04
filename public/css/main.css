@@ -3,4 +3,7 @@
 @import "./menu.css";
 @import "./login.css";
 @import "./textArea.css";
-/* @import"./headings.css"; */
+@import"./postView.css";
+@import "./api.css";
+@import "./apiResults.css";
+@import "./footer.css";

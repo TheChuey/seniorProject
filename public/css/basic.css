@@ -1,11 +1,38 @@
-body {
-    font-family: system-ui;
-    font-size: 62.5%;
-    /* 1em = 10px */
-    line-height: 1.4;
+* {
+    margin: 0;
 }
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 62.5%;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+
+}
+
 
 #save {
     background: green;
     width: 550px;
+}
+
+.textOne {
+    color: blue;
+}
+
+.header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.greeting {
+    margin-bottom: 10%;
+    text-align: center;
+    padding: 0;
+    height: 50px;
+    width: 100%;
+    border-bottom-style: solid;
+    background-color: #D99511;
+
 }

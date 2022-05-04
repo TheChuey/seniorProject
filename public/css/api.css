@@ -1,0 +1,63 @@
+/* Container for Save button and title with post */
+.flex-container-api {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.flex-item-left-api {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.flex-item-right-api {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+}
+
+
+#recipe {
+
+    font-size: 35px;
+}
+
+#search {
+    width: 250px;
+    height: 100px;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.flex-container-menu {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 15%;
+}
+
+.buttonMenu {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100Px;
+    width: 150px;
+    background-color: greenyellow;
+    border-radius: 5px;
+
+}
+
+
+@media (max-width: 800px) {
+    .flex-container-menu {
+        flex-direction: column;
+    }
+
+    /* --------------- Display Flex --------- */

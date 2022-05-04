@@ -5,55 +5,41 @@
 <head>
   <%- include('./pages/meta.ejs'); %>
 
-  <title> </title>
+  <title>Post Message or Comments</title>
 </head>
 <%- include('./pages/navbar.ejs'); %>
 
 <body>
+
+  <h1 class="header"> Post Comments</h1>
+  <h1 class="header">Save Post</h1>
+  <h2 class="header"> Post Name: </h2>
+  <h1 class="header">
+    <div id="grabTitle"><%- title %></div>
+  </h1>
   <div id="2">
-    <div id="sectionOne" class="flex-container postArea">
-      <h1>Title:</h1>
-      <div class="flex-item-left content-width">
-        <div id="grabTitle"><%- title %></div>
-      </div>
-    </div>
-    <div class="flex-container postArea">
-      <div class="flex-items-right">
-        <div class="innerContainer ">
-          <h1>Post:</h1>
-          <div id="message" class="content-width textTwo">
-            <%- content %>
-          </div>
+    <div class="flex-container-postView" id="sectionOne">
+      <div class="flex-item-left-postView">
+
+        <div id="message" class="content-width textTwo">
+          <%- content %>
         </div>
-        <button id="save" onclick="save()">
-          Save
-        </button>
+        <div class="content-width saveButton">
+          <button class="postSave" onclick="save()">
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="flex-item-right-postView">
+
       </div>
     </div>
   </div>
 
-  <% results.forEach(function(titleAndContent) { %>
-
-  <div class="flex-container-save" id="3">
-    <div class="div-content postArea">
-      Post Title:
-      <h2> <%- titleAndContent.title %></h2>
-      <div class="innerContainer">
-        <div class="textTwo content-width">
-          <%- content %>
-        </div>
-        <button id="delete" onclick="del(`<%- titleAndContent.title %>`)" style="background:red">
-          Delete
-        </button>
-      </div>
-    </div>
-    <div></div>
-
-    <% }); %>
   </div>
   <%- include('../view/javaScript/script.ejs')%>
 </body>
 
-</html>
-
-</html>
+<footer>
+  <%- include('./pages/footer.ejs'); %>
+</footer>

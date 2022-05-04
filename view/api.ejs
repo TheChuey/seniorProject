@@ -12,47 +12,50 @@
 
 
 
-<section>
-    <h1 id="entri"> Search </h1>
+<section class="test">
+    <h1 class="header" id="entri"> Search </h1>
+    <h1 class="header">Search Favorite Combo Meals</h1>
     <div class="flex-container">
         <div class="flex-item-left">
 
         </div>
         <div class="flex-item-right">
             <p class="textOne ">
-                test api
+                Choose Type of Recipe:
             </p>
         </div>
     </div>
 </section>
 
-<section>
-    <h1>Search Favorite Combo Meals</h1>
+<section id="form">
 
-    <form action="/api/:Hamburger/:Pizza/:HotDogs" method="post">
-        <input type="checkbox" id="Hamburger" name="Hamburger" value="Hamburger">
-        <label for="vehicle1"> Hamburger</label><br>
-        <input type="checkbox" id="Pizza" name="Pizza" value="Pizza">
-        <label for="vehicle2"> Pizza</label><br>
-        <input type="checkbox" id="HotDogs" name="HotDogs" value="HotDogs">
-        <label for="vehicle3"> HotDogs</label><br><br>
-        <input type="submit" value="Search choice">
-    </form>
+    <div class="flex-container-api">
+        <form class="flex-item-right-api" action="/api/:Hamburger/:Pizza/:HotDogs" method="post">
+            <input type="checkbox" id="Hamburger" name="Hamburger" value="Hamburger">
+            <label for="vehicle1"> Hamburger</label><br>
+            <input type="checkbox" id="Pizza" name="Pizza" value="Pizza">
+            <label for="vehicle2"> Pizza</label><br>
+            <input type="checkbox" id="HotDogs" name="HotDogs" value="HotDogs">
+            <label for="vehicle3"> HotDogs</label><br><br>
+            <input id="search" type="submit" value="Search choice">
+        </form>
+    </div>
 </section>
 
-<%- fooditem %>
-
-
-<input id="search" type="submit" value="Search">
-<section id="item">
-    <%- fooditem.Pizza %>
-</section>
-
-
-<% if (load) { %>
-<script src="/JavaSCript/script.js"></script>
-/* run script */
+<% if (load === true) { %>
+<script src="/JavaSCript/scriptB.js"></script>
+<%} else { %>
 <% } %>
 
 
-<%- include('./javaScript/scriptAPI.ejs')%>
+
+
+
+<!-- <input id="search" type="submit" value="Search"> -->
+<section id="item"></section>
+<section id="menu"></section>
+<script src="/JavaSCript/script.js"></script>
+
+<footer>
+    <%- include('./pages/footer.ejs'); %>
+</footer>

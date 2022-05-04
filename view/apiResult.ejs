@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <%- include('./pages/meta.ejs'); %>
+    <title> <%- name %> </title>
+</head>
+
+<%- include('./pages/navbar.ejs'); %>
+
+
+<h1 class="header"> Results</h1>
+
+<section>
+    <!-- <h1 id="entri"> Search </h1> -->
+    <div class="flex-container-apiResults">
+        <div class="flex-item-left-apiResults">
+            <img src="<%- image%>" alt="">
+        </div>
+        <div class="flex-item-right-apiResults">
+
+            <ul>
+                <div id="ulReceipe">
+                    <% recipe.forEach(function(item,index){ %>
+                    <li> <%= item %> </li>
+                    <% }) %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="item"></section>
+<section id="menu"></section>
+<script src="/JavaSCript/script.js"></script>
+
+<footer>
+    <%- include('./pages/footer.ejs'); %>
+</footer>

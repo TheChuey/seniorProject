@@ -1,0 +1,28 @@
+.flex-container-apiResults {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.flex-item-left-apiResults {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-item-right-apiResults {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ulReceipe {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 15%;
+}

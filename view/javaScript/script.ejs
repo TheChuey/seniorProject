@@ -2,10 +2,6 @@
     console.log("javascript is included")
 
 
-    function home() {
-
-    }
-
     function navbar() {
         let head = document.querySelector("head");
         console.log("navbar");
@@ -16,12 +12,10 @@
         linkTwo.rel = "stylesheet";
         head.appendChild(linkTwo);
     }
+    navbar();
 
 
-    function post() {
-        console.log("post")
 
-    }
 
     function log() {
         console.log("log")
@@ -31,11 +25,15 @@
         linkFour.href = `/css/login.css`;
         linkFour.rel = "stylesheet";
         head.appendChild(linkFour);
+        // linkFour.href = `/css/normalize.css`;
+        // head.appendChild(linkFour);
     }
 
 
     function save() {
+        console.log("save function");
         let grabTitle = document.getElementById("grabTitle").textContent;
+        console.log(grabTitle);
         let grabMessage = document.getElementById("message").textContent;
 
         //saveData object is sent via post to the server 
@@ -58,12 +56,17 @@
                     console.log(saveData, saveData.ok);
                     if (saveData.ok) {
                         document.getElementById("sectionOne").remove();
-                        document.getElementById("2").innerHTML = "<h1>Saved</h1>";
+                        document.getElementById("2").innerHTML = `
+                        <h1>Saved</h1> 
+                        <div class="content-width saveButton">
+                            <button class="postData" onclick="data()">
+                              See Post!!!
+                            </button>                          
+                        `;
+                        data();
+
                     }
-
-                    // location.reload();
-
-
+                    //location.reload();
                 } else {
                     document.getElementById("2").innerHTML = "You canceled!";
                 };
@@ -75,6 +78,30 @@
                 console.error('Error:', error);
             }); // end of Save function
     }
+
+    function data() {
+        console.log("data function \n");
+        // ...
+
+        let fetchData = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=UTF-8'
+            })
+        }
+
+        fetch("/data")
+            .then(function (results) {
+                console.log("data fetch \n resutls \n", results.url);
+                location.href = results.url
+                // handle the response
+            })
+            .catch(function () {
+                // handle the error
+            });
+    }
+
 
 
     function del(postTitle) {

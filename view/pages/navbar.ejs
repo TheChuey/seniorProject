@@ -1,17 +1,11 @@
-<body onload="navbar()" class="sec">
-    <nav>
-        <div class="header">
-            <h1>Header</h1>
-        </div>
+<nav>
+    <ul class="flex-container">
+        <li><a class="active" href="/home">Home</a></li>
+        <li><a href="/post">Post</a></li>
+        <li><a href="/api">API</a></li>
+        <li><a href="/exit">Exit</a></li>
+    </ul>
+    </div>
+</nav>
 
-        <ul class="flex-container">
-            <li><a class="active" href="/home">Home</a></li>
-            <li><a href="/post">Post</a></li>
-            <li><a href="/api">API</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="/exit">Exit</a></li>
-        </ul>
-        </div>
-    </nav>
-    <%- include('../javaScript/script.ejs')%>
-</body>
+<%- include('../javaScript/script.ejs')%>

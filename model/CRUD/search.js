@@ -1,5 +1,6 @@
 // jshint esversion: 8
 
+
 async function returnAllPost() {
     //const test = require("../test.js");
     const mongoose = require('../dataBase');
@@ -32,7 +33,7 @@ async function dbfineUserName() {
 function scan() {
     dbfineUserName()
         .then(response => {
-            console.log(response.uname, "obj-->", response);
+            console.log(response.uname, "obj--===========>", response);
             return response;
         });
 }

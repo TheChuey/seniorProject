@@ -1,0 +1,46 @@
+footer {
+    background-color: brown;
+    height: 400px;
+}
+
+.logo img {
+    height: 150px;
+}
+
+.inforTag {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    transition: transform .5s;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
+.inforTag a {
+    font-weight: bold;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-decoration: none;
+}
+
+.inforTag :hover {
+    text-decoration: none;
+    transform: scale(1.0);
+    background-color: white;
+    font-weight: bold;
+
+}
+
+.foodService {
+    margin-bottom: 1.5%;
+}
+
+
+@media (max-width: 800px) {
+    .inforTag {
+        flex-direction: column;
+    }
+}

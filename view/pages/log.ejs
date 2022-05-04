@@ -6,29 +6,37 @@
 <head>
     <%- include('meta.ejs'); %>
 
-    <title> </title>
+    <title>LogIn </title>
 </head>
 
+<%- include('../javaScript/script.ejs')%>
 
 <body onload="log()">
+    <div class="greeting">
+        <h1>Welcome</h1>
+    </div>
 
-    <form class="" action="/log/:uname/:psw" method="POST">
-        <div class="imgcontainer">
-            <img src="/images/tacoMan.jpg" alt="Avatar" class="avatar">
-        </div>
-        <div class="center">
-            <div class="form-group">
-                <label for="uname"><b>Username</b></label>
-                <input id="name" type="text" placeholder="Enter Username" name="uname" required>
-            </div>
-            <div class="form-group">
-                <label for="psw"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+    <form action="/log/:uname/:psw" method="POST">
+        <div class="container">
+            <div class="imgcontainer">
+                <img src="/images/FoodLogin.jpg" alt="Avatar" class="avatar">
+
+                <div class="center">
+                    <div class="form-group">
+                        <label class="labelLogin" for="uname"><b>Username</b></label>
+                        <input id="name" type="text" placeholder="Enter Username" name="uname" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="labelLogin" for="psw"><b>Password</b></label>
+                        <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
-    <%- include('../javaScript/script.ejs')%>
+
 </body>

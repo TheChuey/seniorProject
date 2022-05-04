@@ -1,63 +1,60 @@
-/* Bordered form */
-form {
-    border: 3px solid green;
-    padding: 10px;
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+
+}
+
+img {
+    border-radius: 4px;
+    width: 50rem;
+    height: 25rem;
 }
 
 .center {
-    /* width: 50rem; */
-    margin: auto;
-    /* padding-top: 10rem; */
-    display: flex;
-    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
 }
 
 .form-group {
-    margin-right: auto;
+
+    margin-top: 5%;
     margin-left: auto;
+    margin-right: auto;
 }
 
-/* Full-width inputs */
-input[type=text],
-input[type=password] {
+.labelLogin {
+    font-size: xx-large;
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+}
+
+.form-group .btn {
     width: auto;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    margin-left: 200px;
+    margin-right: auto;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: auto;
+label {
+    margin-left: 5rem;
+    margin-right: 1rem;
+    padding-left: auto;
+    padding-right: auto;
 }
 
-/* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.8;
-}
+@media (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
 
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
-/* Add padding to containers */
-.container {
-    padding: 16px;
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }

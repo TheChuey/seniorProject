@@ -9,6 +9,11 @@ ul {
     text-align: center;
 }
 
+#recipeList {
+    flex-direction: column;
+}
+
+
 li {
     flex: 50%;
 }
